@@ -4,6 +4,7 @@ using GlobalEnums;
 using HutongGames.PlayMaker;
 using ItemChanger;
 using ItemChanger.Modules;
+using MilliGolf.Rando.Interop;
 using MilliGolf.Rando.Settings;
 using Modding;
 using Newtonsoft.Json;
@@ -38,6 +39,7 @@ namespace MilliGolf.Rando.Manager
         };        
         public static GolfRandoSettings GlobalSettings => MilliGolf.GS;
         public static LocalGolfSettings SaveSettings => MilliGolf.golfData;
+
         public static void Hook()
         {
             LogicHandler.Hook();
@@ -45,6 +47,9 @@ namespace MilliGolf.Rando.Manager
             TransitionHandler.Hook();
             ConnectionMenu.Hook();
             SettingsLog.AfterLogSettings += AddFileSettings;
+
+            if(ModHooks.GetMod("ConnectionSettingsRando") is Mod)
+                CSRInterop.Hook();
         }
 
         public static bool IsRandoSave()

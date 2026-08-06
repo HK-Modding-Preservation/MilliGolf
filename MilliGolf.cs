@@ -1,21 +1,21 @@
-﻿using GlobalEnums;
-using TMPro;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Modding;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using GlobalEnums;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
-using Modding;
+using MilliGolf.Rando.Interop;
+using MilliGolf.Rando.Manager;
+using MilliGolf.Rando.Settings;
 using Satchel;
 using UObject = UnityEngine.Object;
 using uuiText = UnityEngine.UI.Text;
-using MilliGolf.Rando.Manager;
-using MilliGolf.Rando.Settings;
-using MilliGolf.Rando.Interop;
 
 namespace MilliGolf {
     public class MilliGolf: Mod, ILocalSettings<LocalGolfSettings>, IGlobalSettings<GolfRandoSettings> {
@@ -53,7 +53,7 @@ namespace MilliGolf {
         }
 
         new public string GetName() => "MilliGolf";
-        public override string GetVersion() => "1.3.0.2";
+        public override string GetVersion() => "1.3.1.0";
 
         public static LocalGolfSettings golfData { get; set; } = new();
         public void OnLoadLocal(LocalGolfSettings g) => golfData = g;
