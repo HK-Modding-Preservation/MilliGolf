@@ -53,7 +53,7 @@ namespace MilliGolf {
         }
 
         new public string GetName() => "MilliGolf";
-        public override string GetVersion() => "1.3.1.0";
+        public override string GetVersion() => "1.3.1.1";
 
         public static LocalGolfSettings golfData { get; set; } = new();
         public void OnLoadLocal(LocalGolfSettings g) => golfData = g;
@@ -137,7 +137,7 @@ namespace MilliGolf {
             // installs its hook on this method upon loading or creating a save,
             // so hooking here does allow us to beat IC to the punch.
             On.GameManager.BeginSceneTransition += TransitionToGolfRoom;
-            if(ModHooks.GetMod("ItemChangerMod") is Mod) {
+            if(ModHooks.GetMod("ItemChangerMod") is Mod && ModHooks.GetMod("Randomizer 4") is Mod) {
                 GolfManager.AddICHooks();
             }
         }
